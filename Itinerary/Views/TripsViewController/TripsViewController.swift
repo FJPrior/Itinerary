@@ -30,6 +30,26 @@ class TripsViewController: UIViewController {
         addButton.creatFloatingActionButton()
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showAddTripSegue" {
+            let popup = segue.destination as! AddTripViewController
+            // Use weak self to avoid a potential memory leak
+            popup.doneSaving = { [weak self] in
+                TripFunctions.createTrip(tripModel: TripModel(title: popup.tripTextField.text!))
+                self?.tableView.reloadData()
+            }
+            
+            
+        
+        
+        }
+    }
+    
+    func addTrip(title: String) {
+        
+    }
+    
 }
 
 extension TripsViewController: UITableViewDataSource, UITableViewDelegate {

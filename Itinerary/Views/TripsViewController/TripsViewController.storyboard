@@ -66,7 +66,7 @@
                                 </constraints>
                                 <state key="normal" image="WhiteButton"/>
                                 <connections>
-                                    <segue destination="Cth-6E-waW" kind="presentation" id="Zbk-4p-JRC"/>
+                                    <segue destination="Cth-6E-waW" kind="presentation" identifier="showAddTripSegue" id="Zbk-4p-JRC"/>
                                 </connections>
                             </button>
                         </subviews>

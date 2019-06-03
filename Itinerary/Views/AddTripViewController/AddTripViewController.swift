@@ -17,12 +17,14 @@ class AddTripViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var popupView: UIView!
     
+    var doneSaving: (() -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         tittleLabel.font = UIFont(name: Theme.mainFont, size: 24)
+        
 
         
     }
@@ -34,10 +36,9 @@ class AddTripViewController: UIViewController {
     
     
     @IBAction func savePressed(_ sender: Any) {
-        
-        
-        
-        
+        if let doneSaving = doneSaving {
+            doneSaving()
+        }        
         dismiss(animated: true)
     }
     
