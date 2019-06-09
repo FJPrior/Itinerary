@@ -21,6 +21,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uJ6-yM-e33" customClass="PopupUIView" customModule="Itinerary" customModuleProvider="target">
                                 <rect key="frame" x="20" y="44" width="374" height="155"/>
                                 <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WWL-nf-R9E">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="155"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Trip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daZ-Ic-jMA">
                                         <rect key="frame" x="20" y="10" width="334" height="41"/>
                                         <constraints>
@@ -61,6 +65,14 @@
                                             <action selector="savePressed:" destination="R3H-Lo-EDs" eventType="touchUpInside" id="qj7-N4-G8v"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="left" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcS-vx-v2l">
+                                        <rect key="frame" x="319" y="13" width="35" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="CameraIcon"/>
+                                        <connections>
+                                            <action selector="addFotoPressed:" destination="R3H-Lo-EDs" eventType="touchUpInside" id="t7u-Rv-8CE"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -88,6 +100,7 @@
                     </view>
                     <connections>
                         <outlet property="cancelButton" destination="WqS-Md-OSM" id="Ud7-Cf-GFx"/>
+                        <outlet property="imageView" destination="WWL-nf-R9E" id="CQg-H9-fQm"/>
                         <outlet property="popupView" destination="uJ6-yM-e33" id="RyM-Ju-3L6"/>
                         <outlet property="saveButton" destination="LBv-TF-UlD" id="jNi-0T-1Rn"/>
                         <outlet property="tittleLabel" destination="daZ-Ic-jMA" id="P3Q-BS-jE0"/>
@@ -99,4 +112,8 @@
             <point key="canvasLocation" x="808.69565217391312" y="68.973214285714278"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CameraIcon" width="56" height="56"/>
+    </resources>
+    <color key="tintColor" name="Tint"/>
 </document>

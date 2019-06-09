@@ -36,7 +36,7 @@ class TripsViewController: UIViewController {
             let popup = segue.destination as! AddTripViewController
             // Use weak self to avoid a potential memory leak
             popup.doneSaving = { [weak self] in
-                TripFunctions.createTrip(tripModel: TripModel(title: popup.tripTextField.text!))
+                
                 self?.tableView.reloadData()
             }
             
