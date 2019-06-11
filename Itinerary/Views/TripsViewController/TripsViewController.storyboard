@@ -29,11 +29,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCa-Bb-naG">
+                                                <view clipsSubviews="YES" contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="nCa-Bb-naG">
                                                     <rect key="frame" x="15" y="11" width="345" height="138"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EPS-Ln-AM5">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vZS-3k-gFI">
                                                             <rect key="frame" x="0.0" y="0.0" width="345" height="138"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJr-mS-fi0">
                                                             <rect key="frame" x="8" y="44" width="358" height="51"/>
@@ -43,12 +44,6 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="EPS-Ln-AM5" secondAttribute="trailing" id="4Rf-kG-eLa"/>
-                                                        <constraint firstItem="EPS-Ln-AM5" firstAttribute="leading" secondItem="nCa-Bb-naG" secondAttribute="leading" id="MfS-PF-zH1"/>
-                                                        <constraint firstAttribute="bottom" secondItem="EPS-Ln-AM5" secondAttribute="bottom" id="ePv-AT-UgO"/>
-                                                        <constraint firstItem="EPS-Ln-AM5" firstAttribute="top" secondItem="nCa-Bb-naG" secondAttribute="top" id="qo7-ew-pYP"/>
-                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,9 +57,8 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
                                             <outlet property="cardView" destination="nCa-Bb-naG" id="f6Z-wf-bbh"/>
-                                            <outlet property="imageView" destination="EPS-Ln-AM5" id="YFJ-aE-sov"/>
                                             <outlet property="titleLabel" destination="uJr-mS-fi0" id="A5d-C0-HVJ"/>
-                                            <outlet property="tripImageView" destination="EPS-Ln-AM5" id="qJH-Wu-ODs"/>
+                                            <outlet property="tripImageView" destination="vZS-3k-gFI" id="GdY-ee-CE9"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

@@ -20,6 +20,9 @@ class AddTripViewController: UIViewController {
     @IBOutlet weak var popupView: UIView!
     
     var doneSaving: (() -> ())?
+    var tripIndexToEdit: Int?
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +36,13 @@ class AddTripViewController: UIViewController {
         tittleLabel.layer.shadowColor = UIColor.white.cgColor
         tittleLabel.layer.shadowOffset = CGSize.zero
         tittleLabel.layer.shadowRadius = 5
+        
+        if let index = tripIndexToEdit {
+            let trip = Data.tripModels[index]
+            tripTextField.text = trip.title
+            tittleLabel.text = "Edit Trip"
+            imageView.image = trip.image
+        }
 
         
     }
@@ -84,6 +94,8 @@ class AddTripViewController: UIViewController {
                     
                     self.present(alert, animated: true)
                     
+                @unknown default:
+                    break
                 }
             }
         }
@@ -96,6 +108,7 @@ class AddTripViewController: UIViewController {
         tripTextField.rightViewMode = .never
         
         guard tripTextField.text != "", let newTripName = tripTextField.text else {
+            // If the user has not entered text, present a warning
             let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 20))
             imageView.contentMode = .scaleAspectFit
             imageView.image = #imageLiteral(resourceName: "Warning")
@@ -115,6 +128,11 @@ class AddTripViewController: UIViewController {
             return
         }
         
+        if let index = tripIndexToEdit {
+            TripFunctions.updateTrip(at: index, title: newTripName, image: imageView.image)
+        }
+        
+        
         TripFunctions.createTrip(tripModel: TripModel(title: newTripName,image: imageView.image))
         
         if let doneSaving = doneSaving {
@@ -129,7 +147,7 @@ class AddTripViewController: UIViewController {
 extension AddTripViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         // Checking if the user selected an Image
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+        if let image = info[.originalImage] as? UIImage {
             self.imageView.image = image
         }
         dismiss(animated: true)
@@ -139,6 +157,3 @@ extension AddTripViewController: UIImagePickerControllerDelegate, UINavigationCo
         dismiss(animated: true)
     }
 }
-
-
-
